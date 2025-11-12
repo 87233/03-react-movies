@@ -28,6 +28,7 @@ function App() {
 
   const handleSearch = async (query: string) => {
     try {
+      setError(false);
       setLoader(true);
       setMovies([]);
       const results = await fetchMovies({ query });

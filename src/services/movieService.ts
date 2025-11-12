@@ -1,5 +1,4 @@
 import axios from "axios";
-import type { AxiosResponse } from "axios";
 import type { Movie } from "../types/movie";
 
 interface FetchMoviesParams {
@@ -33,10 +32,7 @@ export async function fetchMovies({
     },
   };
 
-  const response: AxiosResponse<MovieResponse> = await axios.get(
-    API_URL,
-    config
-  );
+  const response = await axios.get<MovieResponse>(API_URL, config);
 
   return response.data.results;
 }
